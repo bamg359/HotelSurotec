@@ -45,6 +45,10 @@ public class HuespedRepositorio {
 
     }
 
+    public List<ArrayList<String>> getListaHuespedes() {
+        return listaHuespedes;
+    }
+
 
 
 

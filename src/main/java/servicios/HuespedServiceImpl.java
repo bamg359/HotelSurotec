@@ -4,6 +4,8 @@ import modelo.dominio.Huesped;
 import modelo.dominio.Persona;
 import repositorio.HuespedRepositorio;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class HuespedServiceImpl implements HuespedInterface {
@@ -69,6 +71,20 @@ public class HuespedServiceImpl implements HuespedInterface {
 
     @Override
     public void listarPersonas() {
-        
+        List<ArrayList<String>> listaHuesped = huespedRepositorio.getListaHuespedes();
+
+        for (ArrayList<String> huesped : listaHuesped) {
+            System.out.println("Huesped{id=" + huesped.get(0) +
+                    ", nombre='" + huesped.get(1) + '\'' +
+                    ", apellido='" + huesped.get(2) + '\'' +
+                    ", telefono='" + huesped.get(3) + '\'' +
+                    ", direccion='" + huesped.get(4) + '\'' +
+                    ", ocupacion='" + huesped.get(5) + '\'' +
+                    ", origen='" + huesped.get(6) + '\'' +
+                    ", tipoHuesped='" + huesped.get(7) + '\'' +
+                    '}');
+        }
+
+
     }
 }
