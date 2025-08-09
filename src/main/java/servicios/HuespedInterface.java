@@ -1,17 +1,18 @@
 package servicios;
 
+import modelo.dominio.Huesped;
 import modelo.dominio.Persona;
 
-public interface PersonaInterface {
+public interface HuespedInterface {
 
 
-    public void registrarPersona(Persona persona);
+    public void registrarPersona(Huesped huesped);
 
     public void eliminarPersona(int id);
 
     public Persona buscarPersona(int id);
 
-    public void actualizarPersona(Persona persona);
+    public void actualizarPersona(Huesped huesped);
 
     public void listarPersonas();
 

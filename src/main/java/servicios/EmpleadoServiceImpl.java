@@ -1,11 +1,12 @@
 package servicios;
 
+import modelo.dominio.Empleado;
 import modelo.dominio.Persona;
 
-public class EmpleadoServiceImpl implements PersonaInterface {
+public class EmpleadoServiceImpl implements EmpleadoInterface {
 
     @Override
-    public void registrarPersona(Persona persona) {
+    public void registrarPersona(Empleado empleado) {
 
     }
 
@@ -20,7 +21,7 @@ public class EmpleadoServiceImpl implements PersonaInterface {
     }
 
     @Override
-    public void actualizarPersona(Persona persona) {
+    public void actualizarPersona(Empleado empleado) {
 
     }
 
