@@ -49,7 +49,7 @@ public class HuespedServiceImpl implements HuespedInterface {
         huesped.setTipoHuesped(tipoHuesped);
 
         huespedRepositorio.crearHuespedRepositorio(huesped);
-        
+
     }
 
     @Override
@@ -69,6 +69,6 @@ public class HuespedServiceImpl implements HuespedInterface {
 
     @Override
     public void listarPersonas() {
-
+        
     }
 }
