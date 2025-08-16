@@ -51,6 +51,7 @@ public class HuespedServiceImpl implements HuespedInterface {
         huesped.setTipoHuesped(tipoHuesped);
 
         huespedRepositorio.crearHuespedRepositorio(huesped);
+        huespedRepositorio.crearHuespedDB(huesped);
 
     }
 
@@ -87,4 +88,12 @@ public class HuespedServiceImpl implements HuespedInterface {
 
 
     }
+
+
+    public void mostrarHuespedes(){
+
+        huespedRepositorio.verHuespedes();
+    }
+
+
 }

@@ -100,7 +100,7 @@ public class App {
                 break;
             case 6:
                 System.out.println("Listar Huespedes");
-                huespedService.listarPersonas();
+                huespedService.mostrarHuespedes();
                 break;
             case 0:
                 System.out.println("Saliendo del menú de gestión de Huespedes...");

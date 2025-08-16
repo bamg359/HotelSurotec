@@ -2,12 +2,15 @@ package repositorio;
 
 import modelo.dominio.Huesped;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HuespedRepositorio {
 
-
+    Conexion conexion = new Conexion();
 
     List<ArrayList<String>>  listaHuespedes = new ArrayList<>();
 
@@ -44,6 +47,80 @@ public class HuespedRepositorio {
         System.out.println("Huesped registrado: " + listaHuesped);
 
     }
+
+    public void crearHuespedDB(Huesped huesped) {
+
+        PreparedStatement ps = null;
+
+        try(Connection connection = conexion.connect()) {
+
+            String query = "INSERT INTO huesped(id_huesped, nombre_huesped, apellido, telefono, direccion, ocupacion, origen,tipoHuesped)VALUES(?,?,?,?,?,?,?,?)";
+
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, huesped.getId());
+            ps.setString(2, huesped.getNombre());
+            ps.setString(3, huesped.getApellido());
+            ps.setString(4, huesped.getTelefono());
+            ps.setString(5, huesped.getDireccion());
+            ps.setString(6, huesped.getOcupacion());
+            ps.setString(7, huesped.getOrigen());
+            ps.setString(8, huesped.getTipoHuesped());
+
+            ps.executeUpdate();
+
+            System.out.println("Huesped registrado en la base de datos: " + huesped.getNombre() + " " + huesped.getApellido());
+
+        } catch (Exception e) {
+            System.out.println("Error al conectar: " + e.getMessage());
+        }
+
+
+    }
+
+    public void verHuespedes(){
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try(Connection connection = conexion.connect()) {
+
+            String query = "SELECT * FROM huesped";
+
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                int id = rs.getInt("id_huesped");
+                String nombre = rs.getString("nombre_huesped");
+                String apellido = rs.getString("apellido");
+                String telefono = rs.getString("telefono");
+                String direccion = rs.getString("direccion");
+                String ocupacion = rs.getString("ocupacion");
+                String origen = rs.getString("origen");
+                String tipoHuesped = rs.getString("tipoHuesped");
+
+                System.out.println("Huesped{id=" + id +
+                        ", nombre='" + nombre + '\'' +
+                        ", apellido='" + apellido + '\'' +
+                        ", telefono='" + telefono + '\'' +
+                        ", direccion='" + direccion + '\'' +
+                        ", ocupacion='" + ocupacion + '\'' +
+                        ", origen='" + origen + '\'' +
+                        ", tipoHuesped='" + tipoHuesped + '\'' +
+                        '}');
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("Error al conectar: " + e.getMessage());
+        }
+
+    }
+
+
+
 
     public List<ArrayList<String>> getListaHuespedes() {
         return listaHuespedes;
