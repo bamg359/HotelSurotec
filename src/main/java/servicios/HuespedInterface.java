@@ -10,7 +10,7 @@ public interface HuespedInterface {
 
     public void eliminarPersona(int id);
 
-    public Persona buscarPersona(int id);
+    public void buscarPersona(int id);
 
     public void actualizarPersona(Huesped huesped);
 

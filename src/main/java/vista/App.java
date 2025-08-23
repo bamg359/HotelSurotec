@@ -68,11 +68,10 @@ public class App {
 
         System.out.println("Seleccione una opción \n" +
                 "1. Registrar Huesped \n" +
-                "2. Registrar Empleado \n" +
-                "3. Buscar Huesped \n" +
-                "4. Actualizar Huesped \n" +
-                "5. Eliminar Huesped \n" +
-                "6. Listar Huespedes \n" +
+                "2. Buscar Huesped \n" +
+                "3. Actualizar Huesped \n" +
+                "4. Eliminar Huesped \n" +
+                "5. Listar Huespedes \n" +
                 "0. Salir");
 
         int option = sc.nextInt();
@@ -82,23 +81,23 @@ public class App {
                 System.out.println("Registrar Huesped");
                 huespedService.registrarPersona(huesped);
                 break;
+
             case 2:
-                System.out.println("Registrar Empleado");
-                // Implementar registrar empleado
+                System.out.println("Buscar Huesped por Id");
+                int id = sc.nextInt();
+                huespedService.buscarPersona(id);
                 break;
             case 3:
-                System.out.println("Buscar Huesped");
-                // Implementar buscar huesped
+                System.out.println("Actualizar Huesped");
+                huespedService.actualizarPersona(huesped);
                 break;
             case 4:
-                System.out.println("Actualizar Huesped");
-                // Implementar actualizar huesped
+                System.out.println("Eliminar Huesped");
+                System.out.println("Eliminar Huesped con Id: ");
+                id = sc.nextInt();
+                huespedService.eliminarPersona(id);
                 break;
             case 5:
-                System.out.println("Eliminar Huesped");
-                // Implementar eliminar huesped
-                break;
-            case 6:
                 System.out.println("Listar Huespedes");
                 huespedService.mostrarHuespedes();
                 break;

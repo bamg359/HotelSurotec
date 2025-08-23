@@ -58,15 +58,56 @@ public class HuespedServiceImpl implements HuespedInterface {
     @Override
     public void eliminarPersona(int id) {
 
+        huespedRepositorio.eliminarHuespedBD(id);
+
     }
 
     @Override
-    public Persona buscarPersona(int id) {
-        return null;
+    public void buscarPersona(int id) {
+
+        huespedRepositorio.buscarHuespedPorIdBD(id);
+
     }
 
     @Override
     public void actualizarPersona(Huesped huesped) {
+
+
+        System.out.println("Actualizar Huesped");
+
+        System.out.println("Seleccione el campo a actualizar: 1. Nombre 2. Apellido");
+
+            int option = sc.nextInt();
+            sc.nextLine();
+
+            switch (option){
+
+                case 1:
+                    System.out.println("Ingrese el nuevo nombre ");
+                    String nombre = sc.nextLine();
+                    sc.nextLine(); // Consumir el salto de línea pendiente
+                    System.out.println("Ingrese el Id del Huesped a actualizar ");
+                    int id = sc.nextInt();
+                    huesped.setId(id);
+                    huesped.setNombre(nombre);
+                    huespedRepositorio.actualizarHuespedBD(huesped);
+                    break;
+                case 2:
+                    System.out.println("Ingrese el nuevo apellido ");
+                    String apellido = sc.nextLine();
+                    System.out.println("Ingrese el Id del Huesped a actualizar ");
+                    id = sc.nextInt();
+                    huesped.setId(id);
+                    huesped.setApellido(apellido);
+                    huespedRepositorio.actualizarHuespedBD(huesped);
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+
+
+
 
     }
 
