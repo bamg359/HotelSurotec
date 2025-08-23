@@ -1,8 +1,11 @@
 package vista;
 
 import modelo.dominio.Huesped;
+import modelo.dominio.TipoHabitacion;
 import repositorio.HuespedRepositorio;
+import repositorio.TipoHabitacionRepositorio;
 import servicios.HuespedServiceImpl;
+import servicios.TipoHabitacionServiceImpl;
 
 import java.util.Scanner;
 
@@ -10,8 +13,11 @@ public class App {
 
     Scanner sc = new Scanner(System.in);
     Huesped huesped = new Huesped();
+    TipoHabitacion tipoHabitacion = new TipoHabitacion();
     HuespedRepositorio huespedRepositorio = new HuespedRepositorio();
     HuespedServiceImpl huespedService = new HuespedServiceImpl(huespedRepositorio);
+    TipoHabitacionRepositorio tipoHabitacionRepositorio = new TipoHabitacionRepositorio();
+    TipoHabitacionServiceImpl tipoHabitacionService = new TipoHabitacionServiceImpl(tipoHabitacionRepositorio);
 
     public void menuApp(){
 
@@ -27,6 +33,7 @@ public class App {
 
             System.out.println("1. Gestionar Huespedes \n" +
                     "2. Gestionar Empleados \n" +
+                    "3. Gestionar Habitaciones \n" +
                     "3. Salir");
 
             int option = sc.nextInt();
@@ -42,6 +49,12 @@ public class App {
 
                     break;
                 case 3:
+                    System.out.println("Gestionar Habitaciones");
+
+                    gestionarHabitaciones(true);
+
+                    break;
+                case 4:
                     System.out.println("Saliendo del sistema...");
                     init = 0; // Salir del bucle
                     break;
@@ -109,6 +122,41 @@ public class App {
         }
 
 
+    }
+
+
+
+    public void gestionarHabitaciones(boolean menuHabitaciones){
+
+
+        while(menuHabitaciones) {
+
+            System.out.println("1. Crear Habitacion \n" +
+                    "2. Listar Habitaciones \n " +
+                    "3. Volver al menu principal");
+
+            int option = sc.nextInt();
+
+            switch (option) {
+
+                case 1:
+                    System.out.println("Crear Habitacion");
+                    tipoHabitacionService.crearTipoHab(tipoHabitacion);
+                    break;
+                case 2:
+                    System.out.println("Listar Habitaciones");
+                    break;
+                case 3:
+                    System.out.println("Volver al menu principal");
+                    menuHabitaciones = false;
+                    break;
+                default:
+                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    break;
+
+            }
+
+        }
     }
 
 
