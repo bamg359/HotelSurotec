@@ -1,11 +1,14 @@
 package vista;
 
+import modelo.dominio.Habitacion;
 import modelo.dominio.Huesped;
 import modelo.dominio.TipoHabitacion;
+import repositorio.HabitacionRepositorio;
 import repositorio.HuespedRepositorio;
 import repositorio.TipoHabitacionRepositorio;
+import servicios.HabitacionServiceImpl;
 import servicios.HuespedServiceImpl;
-import servicios.TipoHabitacionServiceImpl;
+import servicios.TipoHabitacionServiceServiceImpl;
 
 import java.util.Scanner;
 
@@ -14,10 +17,13 @@ public class App {
     Scanner sc = new Scanner(System.in);
     Huesped huesped = new Huesped();
     TipoHabitacion tipoHabitacion = new TipoHabitacion();
+    Habitacion habitacion = new Habitacion();
     HuespedRepositorio huespedRepositorio = new HuespedRepositorio();
     HuespedServiceImpl huespedService = new HuespedServiceImpl(huespedRepositorio);
     TipoHabitacionRepositorio tipoHabitacionRepositorio = new TipoHabitacionRepositorio();
-    TipoHabitacionServiceImpl tipoHabitacionService = new TipoHabitacionServiceImpl(tipoHabitacionRepositorio);
+    TipoHabitacionServiceServiceImpl tipoHabitacionService = new TipoHabitacionServiceServiceImpl(tipoHabitacionRepositorio);
+    HabitacionRepositorio habitacionRepositorio = new HabitacionRepositorio();
+    HabitacionServiceImpl habitacionService = new HabitacionServiceImpl(habitacionRepositorio);
 
     public void menuApp(){
 
@@ -131,22 +137,28 @@ public class App {
 
         while(menuHabitaciones) {
 
-            System.out.println("1. Crear Habitacion \n" +
-                    "2. Listar Habitaciones \n " +
-                    "3. Volver al menu principal");
+            System.out.println("1. Crear Tipo Habitacion \n" +
+                    "2. Crear Habitacion \n " +
+                    "3. Listar Habitaciones \n" +
+                    "4. Volver al menu principal");
 
             int option = sc.nextInt();
 
             switch (option) {
 
                 case 1:
-                    System.out.println("Crear Habitacion");
+                    System.out.println("Crear Tipo Habitacion");
                     tipoHabitacionService.crearTipoHab(tipoHabitacion);
                     break;
                 case 2:
-                    System.out.println("Listar Habitaciones");
+                    System.out.println("Crear Habitaciones");
+                    habitacionService.crearHabitacion(habitacion, tipoHabitacion);
                     break;
                 case 3:
+                    System.out.println("Listar Habitaciones");
+                    habitacionService.listarHabitaciones();
+                    break;
+                case 4:
                     System.out.println("Volver al menu principal");
                     menuHabitaciones = false;
                     break;
