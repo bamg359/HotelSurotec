@@ -8,7 +8,7 @@ import repositorio.HuespedRepositorio;
 import repositorio.TipoHabitacionRepositorio;
 import servicios.HabitacionServiceImpl;
 import servicios.HuespedServiceImpl;
-import servicios.TipoHabitacionServiceServiceImpl;
+import servicios.TipoHabitacionServiceImpl;
 
 import java.util.Scanner;
 
@@ -21,7 +21,7 @@ public class App {
     HuespedRepositorio huespedRepositorio = new HuespedRepositorio();
     HuespedServiceImpl huespedService = new HuespedServiceImpl(huespedRepositorio);
     TipoHabitacionRepositorio tipoHabitacionRepositorio = new TipoHabitacionRepositorio();
-    TipoHabitacionServiceServiceImpl tipoHabitacionService = new TipoHabitacionServiceServiceImpl(tipoHabitacionRepositorio);
+    TipoHabitacionServiceImpl tipoHabitacionService = new TipoHabitacionServiceImpl(tipoHabitacionRepositorio);
     HabitacionRepositorio habitacionRepositorio = new HabitacionRepositorio();
     HabitacionServiceImpl habitacionService = new HabitacionServiceImpl(habitacionRepositorio);
 

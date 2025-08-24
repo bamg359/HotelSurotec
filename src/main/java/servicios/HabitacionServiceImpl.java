@@ -42,9 +42,12 @@ public class HabitacionServiceImpl implements HabitacionServiceInterface {
 
         tipoHabitacion.getIdTipoHabitacion();
 
-        int idTipoHab = tipoHabitacion.getIdTipoHabitacion();
+        int idTipoHab = sc.nextInt();
+        sc.nextLine();
 
-        //habitacion.setTipoHabitacion(idTipoHab);
+        tipoHabitacion.setIdTipoHabitacion(idTipoHab);
+
+        habitacion.setTipoHabitacion(tipoHabitacion);
 
         habitacionRepositorio.crearHabitacionDB(habitacion);
 

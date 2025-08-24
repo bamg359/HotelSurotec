@@ -24,6 +24,10 @@ public class HabitacionRepositorio {
             ps.setString(3,habitacion.getDisponible());
             ps.setInt(4,Integer.parseInt(String.valueOf(habitacion.getTipoHabitacion().getIdTipoHabitacion())));
 
+            ps.executeUpdate();
+
+            System.out.println("El Registro se creó correctamente");
+
 
         } catch (Exception e) {
             System.out.println("Error al conectar: " + e.getMessage());

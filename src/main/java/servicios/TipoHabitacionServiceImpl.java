@@ -4,11 +4,11 @@ import modelo.dominio.TipoHabitacion;
 import repositorio.TipoHabitacionRepositorio;
 import util.TipoHabitacionUtil;
 
-public class TipoHabitacionServiceServiceImpl implements TipoHabitacionServiceInterface {
+public class TipoHabitacionServiceImpl implements TipoHabitacionServiceInterface {
 
     private final TipoHabitacionRepositorio tipoHabitacionRepositorio;
 
-    public TipoHabitacionServiceServiceImpl(TipoHabitacionRepositorio tipoHabitacionRepositorio) {
+    public TipoHabitacionServiceImpl(TipoHabitacionRepositorio tipoHabitacionRepositorio) {
         this.tipoHabitacionRepositorio = tipoHabitacionRepositorio;
 
     }
